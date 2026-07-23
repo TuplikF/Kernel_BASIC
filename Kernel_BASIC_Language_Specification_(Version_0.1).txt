@@ -1,0 +1,129 @@
+🚀 Kernel BASIC
+
+  A low-level systems programming language inspired by BASIC.
+  
+  Kernel BASIC combines the simplicity and readability of BASIC with the low-level capabilities required for operating system and kernel development.
+
+✨ Philosophy
+
+  Kernel BASIC is designed for developers who want to write:
+
+      🖥️ Operating systems
+      ⚙️ Kernels
+      🔌 Device drivers
+      💾 Bootloaders
+      📦 Kernel modules
+      🔬 Hardware experiments
+      🎓 Educational OS projects
+
+  The goal is simple:
+
+          Keep BASIC easy to read while giving it direct access to the hardware.
+
+📚 Features
+      🧩 Simple Data Types
+          
+            Type	  -    Description
+            BYTE	  -    8-bit integer
+            WORD	  -    16-bit integer
+            LONG	  -    32-bit integer
+            QWORD	  -    64-bit integer
+            PTR	    -    Memory pointer
+            REG	    -    CPU register
+            BOOL    -	  Boolean value
+
+🧠 Direct Memory Access:
+ 
+    POKE &H80000000, 255
+    value = PEEK(&H80000000)
+
+⚡ CPU Register Access:
+
+    REG("A") = 5
+    PRINT REG("SP")
+
+🚨 Interrupt Handling:
+
+    ON INTERRUPT 3 GOTO IRQ3_HANDLER
+
+    IRQ3_HANDLER:
+      PRINT "IRQ 3!"
+      IRET
+
+🔥 Inline Assembly:
+
+     ASM
+        MOV AX, 1234h
+        OUT 60h, AX
+    END ASM
+
+🔌 Hardware I/O Ports:
+
+    OUT &H3F8, 65
+    value = IN(&H3F8)
+
+💻 System Calls:
+
+    SYS 1, param1, param2
+    result = SYS(2)
+
+📦 Modules & Drivers:
+
+    MODULE "keyboard"
+    
+    EXPORT Init
+    
+    SUB Init()
+        SYS 10
+    END SUB
+
+🧮 Memory Management:
+
+    p = MALLOC(1024)
+
+    FREE p
+
+🧵 Multithreading:
+
+    THREAD StartTask, priority
+
+📖 BASIC Syntax:
+    IF x > 10 THEN
+        PRINT "OK"
+    ELSE
+        PRINT "NO"
+    END IF
+
+
+🚀 Bootloader Compatible
+
+Kernel BASIC applications can run as:
+
+💾 Boot scripts
+⚙️ Bootloaders
+🖥️ Kernel modules
+🛠️ System utilities
+📦 Operating system shells
+🎯 Design Goals
+
+Kernel BASIC combines:
+
+✅ BASIC readability
+⚡ C-level performance
+🔧 Assembly-level hardware access
+🧩 Modular architecture
+💻 Direct memory manipulation
+📡 Interrupt handling
+🔌 Port I/O
+🖥️ Register access
+📌 Project Status
+
+🚧 Kernel BASIC is currently under active development.
+
+The language specification is still evolving, and features may change as development continues.
+
+❤️ Vision
+
+The goal of Kernel BASIC is to make operating system development more accessible without sacrificing low-level control.
+
+Simple like BASIC. Powerful like C. Close to the hardware like Assembly.
