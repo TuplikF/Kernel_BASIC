@@ -1,0 +1,140 @@
+Basic Arithmetic Instructions
+
+ADD – addition
+
+      x = a + b
+
+SUB – subtraction
+
+      x = a - b
+
+MUL – multiplication
+
+      x = a * b
+
+DIV – division (integer or floating-point, depending on the data type)
+
+      x = a / b
+
+INC / DEC – increment / decrement
+
+      INC x
+      DEC x
+
+
+
+Logical and Bitwise Instructions
+
+AND, OR, XOR – logical/bitwise operations
+
+      x = a AND b
+
+NOT – bitwise negation
+
+      x = NOT a
+
+SHL / SHR – bit shifting
+
+      x = SHL(a, 1)
+
+ROL / ROR – bit rotation
+
+      x = ROL(a, 1)
+
+Memory Instructions
+
+POKE – write to a memory address
+
+      POKE &H80000000, 255
+
+PEEK – read from a memory address
+
+      value = PEEK(&H80000000)
+
+MOV – move or copy a value (syntactic sugar for assignment)
+
+      MOV x, y
+
+MALLOC / FREE – dynamic memory management
+
+      p = MALLOC(1024)
+      FREE p
+
+
+CPU Registers and Control
+
+REGGET / REGSET – access CPU registers
+
+      REGSET "A", 5
+      x = REGGET("SP")
+
+FLAGS – manipulate processor flags
+
+REGSET "FLAGS", REGGET("FLAGS") OR &H200
+
+CLI / STI – disable or enable interrupts
+
+    CLI
+    STI
+    Control Flow
+    IF / THEN / ELSE / END IF
+    FOR / TO / STEP / NEXT
+    WHILE / WEND
+    DO / LOOP UNTIL
+    GOTO / GOSUB / RETURN
+
+These instructions provide the standard program flow. Although GOTO is generally discouraged, it remains useful for certain low-level programming tasks.
+
+Interrupts and System Calls
+
+ON INTERRUPT n GOTO label – register an interrupt service routine (ISR)
+
+IRET – return from an interrupt handler
+
+SYS id, param1, param2... – invoke a system call
+
+      SYS 1, p, size
+      result = SYS(2)
+
+I/O Ports
+
+OUT port, value – write to an I/O port
+
+      OUT &H3F8, 65
+
+IN(port) – read from an I/O port
+
+      value = IN(&H3F8)
+      Inline Assembly
+
+ASM ... END ASM – embed native assembly code
+
+      ASM
+          MOV AX, 1234h
+          OUT 60h, AX
+      END ASM
+
+
+Threads / Processes (Optional)
+
+Create and manage execution threads.
+
+      THREAD START func, priority
+      
+      THREAD YIELD
+      
+      THREAD SLEEP ms
+
+Debugging and System
+
+TRACE ON / OFF – enable or disable instruction tracing
+
+DUMP addr, len – display a memory dump
+
+PANIC msg – trigger a kernel panic
+
+      TRACE ON
+
+      DUMP &H80000000, 128
+
+      PANIC "Kernel Fault"
